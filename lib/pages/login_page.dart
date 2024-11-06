@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:phl_shoe_store_client/pages/home_page.dart';
 import 'package:phl_shoe_store_client/pages/register_page.dart';
 
 class LoginPage extends StatelessWidget {
@@ -42,7 +43,13 @@ class LoginPage extends StatelessWidget {
                     backgroundColor: Colors.deepPurple,
                   ),
                   child: const Text('Login'),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => HomePage(),
+                        ));
+                  },
                 ),
                 const SizedBox(height: 16.0),
                 TextButton(
