@@ -70,7 +70,11 @@ class RegisterPage extends StatelessWidget {
                 }
               },
             ),
-            TextButton(onPressed: () {}, child: Text("Login"))
+            TextButton(
+                onPressed: () {
+                  Get.to(LoginPage());
+                },
+                child: Text("Login"))
           ]),
         ),
       );

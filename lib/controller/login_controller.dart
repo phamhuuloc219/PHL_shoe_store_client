@@ -13,6 +13,8 @@ class LoginController extends GetxController {
   TextEditingController registerNameCtrl = TextEditingController();
   TextEditingController registerNumberCtrl = TextEditingController();
 
+  TextEditingController loginNumberCtrl = TextEditingController();
+
   OtpFieldControllerV2 otpController = OtpFieldControllerV2();
   bool otpFieldShow = false;
   int? otpSend;
@@ -76,6 +78,33 @@ class LoginController extends GetxController {
       print(e);
     } finally {
       update();
+    }
+  }
+
+  Future<void> loginWithPhone() async {
+    try {
+      String phoneNumber = loginNumberCtrl.text;
+      if (phoneNumber.isNotEmpty) {
+        var querySnapshot = await userColecttion
+            .where('number', isEqualTo: int.tryParse(phoneNumber))
+            .limit(1)
+            .get();
+
+        if (querySnapshot.docs.isNotEmpty) {
+          var userDoc = querySnapshot.docs.first;
+          var userData = userDoc.data() as Map<String, dynamic>;
+          Get.snackbar("Success", "Login successful", colorText: Colors.green);
+        } else {
+          Get.snackbar("Error", "User not found, please register",
+              colorText: Colors.red);
+        }
+      } else {
+        Get.snackbar("Error", "Please enter phone number",
+            colorText: Colors.red);
+      }
+    } on Exception catch (e) {
+      print(e);
+      Get.snackbar("Error", "Failed to login", colorText: Colors.red);
     }
   }
 }
