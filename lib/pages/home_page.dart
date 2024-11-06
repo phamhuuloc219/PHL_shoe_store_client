@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:phl_shoe_store_client/pages/product_description.dart';
 import 'package:phl_shoe_store_client/widgets/drop_down_btn.dart';
 import 'package:phl_shoe_store_client/widgets/multi_select_drop_down.dart';
 import 'package:phl_shoe_store_client/widgets/product_card.dart';
@@ -62,7 +63,13 @@ class HomePage extends StatelessWidget {
                         "https://media.gettyimages.com/id/506922838/photo/nike-pegasus-design-shoes-and-logo.jpg?s=612x612&w=0&k=20&c=By0UzuxrGvTiQ4sW4OhFBxxbPfbnida2jkH-yNwXqkk=",
                     price: 200,
                     offerTag: "30% off",
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ProductDescriptionPage(),
+                          ));
+                    },
                   );
                 }),
           )
