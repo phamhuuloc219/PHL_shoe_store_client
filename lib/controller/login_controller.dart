@@ -67,6 +67,8 @@ class LoginController extends GetxController {
         otpSend = otp;
         Get.snackbar("Success", 'OTP sent successfully!',
             colorText: Colors.green);
+        Get.snackbar("OTP", 'OTP is $otpSend',
+            colorText: Colors.green, duration: Duration(seconds: 6));
       } else {
         Get.snackbar("Error", 'Failed to send OTP', colorText: Colors.red);
       }
