@@ -469,6 +469,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.0"
+  otp_text_field_v2:
+    dependency: "direct main"
+    description:
+      name: otp_text_field_v2
+      sha256: "78298aa62fdbd5efdcbf4fb4aa3b1f452d7f225fd6efb85f46b20705aff0b93e"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.3"
   package_config:
     dependency: transitive
     description:

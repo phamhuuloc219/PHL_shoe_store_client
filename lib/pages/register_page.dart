@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:phl_shoe_store_client/controller/login_controller.dart';
 import 'package:phl_shoe_store_client/pages/login_page.dart';
+import 'package:phl_shoe_store_client/widgets/otp_txt_field.dart';
 
 class RegisterPage extends StatelessWidget {
   const RegisterPage({super.key});
@@ -46,15 +47,27 @@ class RegisterPage extends StatelessWidget {
                   prefixIcon: Icon(Icons.phone_android),
                   hintText: "Enter your mobile number"),
             ),
-            const SizedBox(height: 16.0),
+            const SizedBox(height: 20.0),
+            OTPTextField(
+              otpController: ctrl.otpController,
+              visble: ctrl.otpFieldShow,
+              onComplete: (otp) {
+                ctrl.otpEnter = int.tryParse(otp ?? "0000");
+              },
+            ),
+            const SizedBox(height: 20.0),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 foregroundColor: Colors.white,
                 backgroundColor: Colors.deepPurple,
               ),
-              child: const Text('Register'),
+              child: Text(ctrl.otpFieldShow ? 'Register' : 'Send OTP'),
               onPressed: () {
-                ctrl.addUser();
+                if (ctrl.otpFieldShow) {
+                  ctrl.addUser();
+                } else {
+                  ctrl.sendOTP();
+                }
               },
             ),
             TextButton(onPressed: () {}, child: Text("Login"))
