@@ -49,7 +49,6 @@ class LoginPage extends StatelessWidget {
                     child: const Text('Login'),
                     onPressed: () {
                       ctrl.loginWithPhone();
-                      // Get.to(HomePage());
                     },
                   ),
                   const SizedBox(height: 16.0),

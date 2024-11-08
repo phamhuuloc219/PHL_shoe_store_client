@@ -3,10 +3,13 @@ import 'dart:math';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:otp_text_field_v2/otp_text_field_v2.dart';
 import 'package:phl_shoe_store_client/model/user/user.dart';
+import 'package:phl_shoe_store_client/pages/home_page.dart';
 
 class LoginController extends GetxController {
+  final box = GetStorage();
   FirebaseFirestore firestore = FirebaseFirestore.instance;
   late CollectionReference userColecttion;
 
@@ -93,6 +96,9 @@ class LoginController extends GetxController {
         if (querySnapshot.docs.isNotEmpty) {
           var userDoc = querySnapshot.docs.first;
           var userData = userDoc.data() as Map<String, dynamic>;
+          box.write("loginUser", userData);
+          loginNumberCtrl.clear();
+          Get.to(HomePage());
           Get.snackbar("Success", "Login successful", colorText: Colors.green);
         } else {
           Get.snackbar("Error", "User not found, please register",
