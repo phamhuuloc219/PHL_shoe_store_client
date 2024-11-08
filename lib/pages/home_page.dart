@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:phl_shoe_store_client/pages/login_page.dart';
 import 'package:phl_shoe_store_client/pages/product_description.dart';
 import 'package:phl_shoe_store_client/widgets/drop_down_btn.dart';
 import 'package:phl_shoe_store_client/widgets/multi_select_drop_down.dart';
@@ -14,7 +17,13 @@ class HomePage extends StatelessWidget {
         centerTitle: true,
         title: const Text('PHL Shoe Stores'),
         actions: [
-          IconButton(icon: Icon(Icons.logout), onPressed: () {}),
+          IconButton(
+              icon: Icon(Icons.logout),
+              onPressed: () {
+                GetStorage box = GetStorage();
+                box.erase();
+                Get.offAll(LoginPage());
+              }),
         ],
       ),
       body: Column(

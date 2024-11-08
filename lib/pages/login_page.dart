@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:phl_shoe_store_client/controller/login_controller.dart';
-import 'package:phl_shoe_store_client/pages/home_page.dart';
 import 'package:phl_shoe_store_client/pages/register_page.dart';
 
 class LoginPage extends StatelessWidget {
