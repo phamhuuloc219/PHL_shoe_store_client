@@ -10,6 +10,7 @@ class HomeController extends GetxController {
   late CollectionReference categoryCollection;
 
   List<Product> products = [];
+  List<Product> productShowInUI = [];
   List<ProductCategory> productCategory = [];
 
   @override
@@ -29,6 +30,7 @@ class HomeController extends GetxController {
           .toList();
       products.clear();
       products.assignAll(retrievedProducts);
+      productShowInUI.assignAll(products);
       Get.snackbar("Success", "Products fetched successfully",
           colorText: Colors.green);
     } on Exception catch (e) {
@@ -48,13 +50,18 @@ class HomeController extends GetxController {
           .toList();
       productCategory.clear();
       productCategory.assignAll(retrievedCategories);
-      Get.snackbar("Success", "Category fetched successfully",
-          colorText: Colors.green);
     } on Exception catch (e) {
       Get.snackbar("Error", e.toString(), colorText: Colors.red);
       print(e);
     } finally {
       update();
     }
+  }
+
+  filterByCategory(String category) {
+    productShowInUI.clear();
+    productShowInUI =
+        products.where((product) => product.category == category).toList();
+    update();
   }
 }

@@ -130,11 +130,17 @@ class HomePage extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemCount: ctrl.productCategory.length,
                 itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.all(6),
-                    child: Chip(
-                        label:
-                            Text(ctrl.productCategory[index].name ?? "Error")),
+                  return InkWell(
+                    onTap: () {
+                      ctrl.filterByCategory(
+                          ctrl.productCategory[index].name ?? "");
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(6),
+                      child: Chip(
+                          label: Text(
+                              ctrl.productCategory[index].name ?? "Error")),
+                    ),
                   );
                 },
               ),
@@ -165,13 +171,13 @@ class HomePage extends StatelessWidget {
                   crossAxisSpacing: 8,
                   mainAxisSpacing: 8,
                 ),
-                itemCount: ctrl.products.length,
+                itemCount: ctrl.productShowInUI.length,
                 itemBuilder: (context, index) {
                   return ProductCard(
-                    name: ctrl.products[index].name ?? "",
-                    imageUrl: ctrl.products[index].image ??
+                    name: ctrl.productShowInUI[index].name ?? "",
+                    imageUrl: ctrl.productShowInUI[index].image ??
                         "https://media.gettyimages.com/id/506922838/photo/nike-pegasus-design-shoes-and-logo.jpg?s=612x612&w=0&k=20&c=By0UzuxrGvTiQ4sW4OhFBxxbPfbnida2jkH-yNwXqkk=",
-                    price: ctrl.products[index].price ?? 0,
+                    price: ctrl.productShowInUI[index].price ?? 0,
                     offerTag: "30% off",
                     onTap: () {
                       Navigator.push(
