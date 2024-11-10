@@ -128,11 +128,13 @@ class HomePage extends StatelessWidget {
               height: 50,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: 5,
+                itemCount: ctrl.productCategory.length,
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: const EdgeInsets.all(6),
-                    child: Chip(label: Text('Category')),
+                    child: Chip(
+                        label:
+                            Text(ctrl.productCategory[index].name ?? "Error")),
                   );
                 },
               ),
