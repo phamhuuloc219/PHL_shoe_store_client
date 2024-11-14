@@ -64,4 +64,17 @@ class HomeController extends GetxController {
         products.where((product) => product.category == category).toList();
     update();
   }
+
+  filterByBrand(List<String> brand) {
+    if (brand.isEmpty) {
+      productShowInUI = products;
+    } else {
+      List<String> lowerCaseBrand = brand.map((e) => e.toLowerCase()).toList();
+      productShowInUI = products
+          .where((product) =>
+              lowerCaseBrand.contains(product.brand?.toLowerCase()))
+          .toList();
+    }
+    update();
+  }
 }
