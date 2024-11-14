@@ -77,4 +77,13 @@ class HomeController extends GetxController {
     }
     update();
   }
+
+  sortByPrice({required bool accending}) {
+    List<Product> sortedProduct = List<Product>.from(productShowInUI);
+    sortedProduct.sort((a, b) => accending
+        ? a.price!.compareTo(b.price!)
+        : b.price!.compareTo(a.price!));
+    productShowInUI = sortedProduct;
+    update();
+  }
 }

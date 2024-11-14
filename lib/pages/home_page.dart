@@ -153,8 +153,12 @@ class HomePage extends StatelessWidget {
                 children: [
                   Flexible(
                     child: DropDownBtn(
-                      items: ["RS: Low to high", "Rs: High to low"],
-                      onSelected: (selected) {},
+                      items: ["RS: Low to High", "Rs: High to Low"],
+                      onSelected: (selected) {
+                        ctrl.sortByPrice(
+                            accending:
+                                selected == "RS: Low to High" ? true : false);
+                      },
                       selectedItemText: "Sort",
                     ),
                   ),
