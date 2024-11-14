@@ -190,14 +190,8 @@ class HomePage extends StatelessWidget {
                       price: ctrl.productShowInUI[index].price ?? 0,
                       offerTag: "30% off",
                       onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => ProductDescriptionPage(
-                              productIndex: index,
-                            ),
-                          ),
-                        );
+                        Get.to(ProductDescriptionPage(),
+                            arguments: {'data': ctrl.productShowInUI[index]});
                       },
                     );
                   },
