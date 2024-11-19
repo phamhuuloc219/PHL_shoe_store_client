@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -77,7 +76,6 @@ class LoginController extends GetxController {
       }
       final random = Random();
       int otp = 1000 + random.nextInt(9000);
-      print(otp);
       // send otp and check its send successfully or not
       if (otp != null) {
         otpFieldShow = true;
