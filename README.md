@@ -5,7 +5,8 @@
 <a href="https://facebook.com/phloc2193" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg" alt="facebook.com/phloc2193" height="30" width="40" /></a>
 </p>
 <br>
-## Open terminal
+<h2>Open terminal</h2>
+
 ### Used to run the build_runner tool in the Flutter project, generating new code and removing duplicate output files if any.
 ###### run to build the part 'product.g.dart'; in file product.dart
 <br>flutter pub run build_runner build --delete-conflicting-outputs 
