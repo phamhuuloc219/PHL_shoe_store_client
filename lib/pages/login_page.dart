@@ -53,11 +53,6 @@ class LoginPage extends StatelessWidget {
                   const SizedBox(height: 16.0),
                   TextButton(
                       onPressed: () {
-                        // Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //       builder: (context) => RegisterPage(),
-                        //     ));
                         Get.to(RegisterPage());
                       },
                       child: Text("Register new account"))
